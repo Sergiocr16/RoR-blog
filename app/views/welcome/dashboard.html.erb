@@ -1,0 +1,29 @@
+<%=link_to "Crear nuevo",new_article_path%>
+<div class="">
+
+    <% @articles.each do |article|%>
+    <h1><%= link_to article.title,article%></h1>
+    <% unless article.user.nil?%>
+    <h6>Posteado por:
+        <strong><%=article.user.email%></strong>
+    </h6>
+    <%end%>
+    <h6>
+        Visitas:
+        <%= article.visits_count%>
+    </h6>
+    <%=link_to "Eliminar",article,method: :delete,style:"color:red !important"%>
+    <%if article.may_publish?%>
+    /
+    <%=link_to "Publicar","/articles/#{article.id}/publish",method: :put,style:"color:blue !important"%>
+    <%link_to dashboard_path%>
+    <%end%>
+
+    <br>
+
+    <%end%>
+
+    <div class="text-center top-space">
+        <%= will_paginate @articles%>
+    </div>
+</div>

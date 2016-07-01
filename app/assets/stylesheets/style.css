@@ -1,0 +1,123 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+input, textarea {
+    color: black;
+}
+.comment{
+  padding: 5px;
+  border-bottom:0.5px solid white;
+  margin-bottom: 15px;
+}
+#comments-box{
+  height: 200px;
+  overflow-y: scroll;
+}
+.center {
+
+    width: 90%;
+}
+.absolute {
+    position: absolute;
+}
+.relative {
+    position: relative;
+}
+.article-height {
+    height: 150px;
+}
+.article-width {
+    width: 30%;
+}
+.text-center {
+    text-align: center;
+}
+.background-cover {
+    background-position: fixed;
+    background-size: cover;
+}
+.top-space{
+  margin-top: 20px;
+}
+a, a:visited {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+#logo {
+    font-size: 1.2em;
+}
+.be-red {
+    background-color: black;
+}
+.white {
+    color: #ECF0F1;
+}
+.large-padding {
+    padding: 5px;
+}
+.no-list {
+    list-style: none;
+}
+.field {
+    margin-top: 1em;
+}
+.form-control {
+    border-style: none;
+    border-bottom: 1px solid;
+    outline: none;
+    width: 100%;
+    display: block;
+    padding: 10px 0px;
+    font-size: 1.2em;
+}
+.Page {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 9px;
+}
+#login {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.article-header {
+    color: white;
+    margin-left: 50px;
+    margin-bottom: 150px;
+    margin-top: 100px;
+}
+#image-bg {
+    background-image: url("https://gamtor.files.wordpress.com/2016/01/cropped-games-2015-best-collage-wallpaper.jpg");
+    z-index: -1;
+}
+.welcome-title {
+    color: white;
+    margin: 150px auto;
+    width: 700px;
+    text-align: center;
+    font-size: 40px !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.font-1{
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
+.category-title {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 9px;
+}
+.article-body {
+    padding: 0 40px;
+}
+.scroll {
+    overflow-y: scroll;
+    height: 600px;
+}

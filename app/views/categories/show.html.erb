@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="category-title" style="background-color:<%=@category.color%>"><%=@category.name%></h1>
+<h3>Articulos</h3>
+
+<% @category.articles.each do |article|%>
+<h1><%= link_to article.title,article%></h1>
+<% unless article.user.nil?%>
+<h6>Posteado por:
+    <strong><%=article.user.email%></strong>
+</h6>
+<%end%>
+<h6>
+    Visitas:
+    <%= article.visits_count%>
+</h6>
+<!-- <p>
+    <%=article.body%>
+    -
+    <%=link_to "Eliminar",article,method: :delete,style:"color:red !important"%>
+</p> -->
+<br>
+<%end%>
+<p>
+    <strong>Color:</strong>
+    <%= @category.color %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %>
+|
+<%= link_to 'Back', categories_path %>

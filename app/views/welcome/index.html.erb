@@ -1,0 +1,13 @@
+<body id="image-bg">
+
+<div class="welcome-title">
+
+<%if user_signed_in?%>
+
+<h1>Bienvenido <%=current_user.email%></h1>
+<%else%>
+<h1>Bienvenido, registrate para una mejor experiencia</h1>
+<%end%>
+</div>
+
+</body>

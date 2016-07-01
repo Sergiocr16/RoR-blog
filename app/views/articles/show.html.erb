@@ -1,0 +1,53 @@
+<div class="scroll">
+    <div class="">
+        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+
+        <%=link_to "Atrás",articles_path,style:"color:blue"%>
+    </div>
+
+    <%unless @article.cover.url=="/covers/original/missing.png"%>
+    <div class="field">
+        <%= image_tag @article.cover.url , style:"width:550px;height:300px; float:right; margin:10px 40px; border-radius:10px;"%>
+    </div>
+    <%end%>
+    <div class="<%= 'article-header' unless @article.cover.url==" /covers/original/missing.png" %>">
+        <h1><%=@article.title%></h1>
+        <%unless @article.user.nil?%>
+        <h6>Posteado por:
+            <strong><%=@article.user.email%></strong>
+        </h6>
+
+        <%end%>
+        <h6>
+            Visitas:
+            <%= @article.visits_count%>
+        </h6>
+        <h5>Categoria(s):
+            <%@article.categories.each do |category|%>
+            <span style="color:<%=category.color%>"><%=link_to category.name,category%>,</span>
+            <%end%>
+        </h5>
+    </div>
+    <br>
+    <hr>
+
+    <div class="article-body">
+
+        <p>
+            <%=Sanitize.fragment(@article.body,Sanitize::Config::RELAXED).html_safe%>
+        </p>
+       <%if current_user.id == @article.user.id%>
+        <div class="">
+            <%= link_to "Editar",edit_article_path(@article),style:"color:yellow !important"%>
+            <i class="fa fa-pencil" aria-hidden="true" style="color:yellow"></i>
+        </div>
+
+        <div class="">
+            <%=link_to "Eliminar",@article,method: :delete,style:"color:red !important"%>
+            <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+        </div>
+        <%end%>
+        <hr>
+        <%=render "articles/comments"%>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<header>
+    <nav class="be-red white large-padding">
+        <ul class="no-list row center-xs middle-xs">
+            <li class="col-md">
+                <h1 class="no-margin" id="logo">
+                    <strong><%=link_to "Gaming blog  ",root_path%>   <i class="fa fa-rebel fa-lg" aria-hidden="true"></i></strong>
+                </h1>
+            </li>
+
+            <li class="col-md">
+                <%= link_to "Articulos",articles_path%>
+            </li>
+
+            <%@categories.each do |category|%>
+            <li class="col-md">
+
+                <%= link_to category.name,category%>
+            </li>
+            <%end%>
+            <% if user_signed_in? %>
+            <!-- <li class="col-md">
+                <%= link_to "Mis Articulos",myArticles_path%>
+            </li> -->
+    
+            <% if current_user.is_admin? %>
+            <li class="col-md">
+                <%=link_to "Administrar", dashboard_path%>
+            </li>
+            <%end%>
+            <li class="col-md">
+                <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%>
+            </li>
+            <%else%>
+            <li class="col-md">
+                <%=link_to "Iniciar Sesión", new_user_session_path%>
+            </li>
+            <li class="col-md">
+                <%=link_to "Crear cuenta", new_user_registration_path%>
+            </li>
+            <%end%>
+        </ul>
+    </nav>
+</header>

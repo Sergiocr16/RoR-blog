@@ -1,0 +1,50 @@
+<!-- Sino se define la variable local o senos olvida, en esta caso name, se puede usar esto para definir si no se encuentra -->
+<!-- <% name ||= "Crear"%> -->
+
+<h1><%=name%>
+    Artículo</h1>
+<%= form_for(@article,html: {id: "articles-form"}) do |f|%>
+<% @article.errors.full_messages.each do |message|%>
+<div class="alert-danger">
+    *<%= message%>
+</div>
+<%end%>
+<div class="field">
+    <%= f.text_field :title,placeholder: "Título",class:"form-control"%>
+</div>
+<div class="field">
+    Portada:
+    <%=f.file_field :cover%>
+</div>
+<div class="field">
+    <%= f.hidden_field :body,placeholder: "Escribe aquí el artículo",id: "body-textarea"%>
+    <%= f.hidden_field :markup_body,placeholder: "Escribe aquí el artículo",id: "markup-body-textarea"%>
+    <div id="epiceditor" style="height:250px;"></div>
+</div>
+<div class="field">
+    <label for="">Categories:
+    </label>
+    <%@categories.each do |category|%>
+    <br>
+    <%=check_box_tag "categories[]",category.id%>
+    <%=category.name%>
+    <%end%>
+</div>
+<div class="field">
+    <%= f.submit "Guardar", class:"btn btn-danger"%>
+</div>
+<%end%>
+<script type="text/javascript">
+
+    var editor = new EpicEditor({
+        textarea: "markup-body-textarea",
+        file: {
+           name: "nuevo_articulo"
+        }
+    }).load();
+
+    $("#articles-form").on("submit", function () {
+        $("#body-textarea").val(editor.exportFile("nuevo_articulo", "html"));
+        $("#markup-body-textarea").val(editor.exportFile("nuevo_articulo"));
+    });
+</script>

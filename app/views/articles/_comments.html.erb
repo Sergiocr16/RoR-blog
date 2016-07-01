@@ -1,0 +1,29 @@
+<div class="field">
+    <h3>Comentarios</h3>
+    <ul id="<%='comments-box' unless !@article.comments.nil?%>">
+
+        <% @article.comments.each do |comment|%>
+        <div class="comment" ,style="border:white 0.2px solid;">
+            by
+            <%=image_tag comment.user.avatar ,style:"width:28px;height:28px; margin:0 10px; border-radius:100px;"%>
+            <strong><%=comment.user.email%></strong>
+            <br>
+            <span style="font-size:12px;">
+                <%=time_ago_in_words(comment.created_at)%>
+                ago
+            </span>
+            <br>
+            <br>
+            <p style="text-aling:justify; margin-left:10px;"><%= comment.body%></p>
+            <%if current_user.email == comment.user.email%>
+            <div style="text-aling:right; margin-left:10px;">
+                <%=link_to "Eliminar",[@article,comment],method: :delete,style:"color:red !important"%>
+                <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
+            </div>
+            <%end%>
+        </div>
+        <%end%>
+    </ul>
+
+    <%= render "comments/form"%>
+</div>
