@@ -36,7 +36,8 @@
         <p>
             <%=Sanitize.fragment(@article.body,Sanitize::Config::RELAXED).html_safe%>
         </p>
-       <%if current_user.id == @article.user.id%>
+        <%if user_signed_in?%>
+        <%if current_user.id == @article.user.id%>
         <div class="">
             <%= link_to "Editar",edit_article_path(@article),style:"color:yellow !important"%>
             <i class="fa fa-pencil" aria-hidden="true" style="color:yellow"></i>
@@ -46,6 +47,7 @@
             <%=link_to "Eliminar",@article,method: :delete,style:"color:red !important"%>
             <i class="fa fa-trash-o" aria-hidden="true" style="color:red"></i>
         </div>
+        <%end%>
         <%end%>
         <hr>
         <%=render "articles/comments"%>

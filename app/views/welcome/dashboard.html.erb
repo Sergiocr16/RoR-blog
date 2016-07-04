@@ -1,7 +1,14 @@
-<%=link_to "Crear nuevo",new_article_path%>
-<div class="">
 
-    <% @articles.each do |article|%>
+<div class="col-md-12">
+  <%=link_to "Crear artículo",new_article_path%>
+  |
+
+  <%=link_to "Administrar categorías",categories_path%>
+</div>
+<br>
+<hr>
+<% @articles.each do |article|%>
+<div class="col-md-4 top-space font-1">
     <h1><%= link_to article.title,article%></h1>
     <% unless article.user.nil?%>
     <h6>Posteado por:
@@ -18,12 +25,9 @@
     <%=link_to "Publicar","/articles/#{article.id}/publish",method: :put,style:"color:blue !important"%>
     <%link_to dashboard_path%>
     <%end%>
-
-    <br>
-
-    <%end%>
-
-    <div class="text-center top-space">
-        <%= will_paginate @articles%>
-    </div>
+</div>
+<%end%>
+<div class="text-center top-space col-md-12">
+    <%= will_paginate @articles%>
+</div>
 </div>

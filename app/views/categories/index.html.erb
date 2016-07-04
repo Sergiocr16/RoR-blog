@@ -1,29 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
+<h1>Categorias</h1>
+<div class="col-md-12">
+    <%= link_to 'Crear categoría', new_category_path %>
+</div>
+<% @categories.each do |category| %>
+<div class="col-md-4 top-space">
+    <h3><%= category.name %></h3>
+    <span>Color:</span>
+    <div style="background-color:<%=category.color%>; border-radius:100000px; height:15px"></div>
+    <br>
+    <div >
+        <%= link_to 'Editar', edit_category_path(category) %>
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+        |
+        <%= link_to 'Eliminar', category, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Color</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+</div>
 
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.color %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>
 
 <br>
-
-<%= link_to 'New Category', new_category_path %>

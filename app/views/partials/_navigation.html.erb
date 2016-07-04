@@ -3,7 +3,9 @@
         <ul class="no-list row center-xs middle-xs">
             <li class="col-md">
                 <h1 class="no-margin" id="logo">
-                    <strong><%=link_to "Gaming blog  ",root_path%>   <i class="fa fa-rebel fa-lg" aria-hidden="true"></i></strong>
+                    <strong><%=link_to "Gaming blog  ",root_path%>
+                        <i class="fa fa-rebel fa-lg" aria-hidden="true"></i>
+                    </strong>
                 </h1>
             </li>
 
@@ -21,14 +23,20 @@
             <!-- <li class="col-md">
                 <%= link_to "Mis Articulos",myArticles_path%>
             </li> -->
-    
+
             <% if current_user.is_admin? %>
             <li class="col-md">
                 <%=link_to "Administrar", dashboard_path%>
             </li>
             <%end%>
             <li class="col-md">
-                <%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%>
+                <div class="">
+                    <%=image_tag current_user.avatar ,style:"width:28px;height:28px; margin-top:10px; border-radius:100px;"%>
+                </div>
+                <div style="font-size:12px !important">
+                    <%=current_user.email%></div>
+                <span style="font-size:10px"><%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%></span>
+
             </li>
             <%else%>
             <li class="col-md">
