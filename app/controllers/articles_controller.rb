@@ -1,8 +1,8 @@
 class ArticlesController< ApplicationController
   before_action :authenticate_user!,only: [:create,:new]
   before_action :set_article,except: [:index,:new,:create,:myArticles]
-  before_action :authenticate_editor!,only: [:new,:create,:update]
-  before_action :authenticate_admin!,only: [:destroy,:publish]
+  # before_action :authenticate_editor!,only: [:new,:create,:update]
+  # before_action :authenticate_admin!,only: [:destroy,:publish]
   #GET / Articles
   def index
     @articles = Article.paginate(page: params[:page],per_page:6).publicados.ultimos
