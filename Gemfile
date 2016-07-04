@@ -27,7 +27,7 @@ gem  'aasm'
 gem 'will_paginate'
 gem 'epic-editor-rails'
 gem 'sanitize'
-gem 'heroku'
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
