@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
   before_create :set_visits_count
   has_many :comments
   after_create :save_categories
-  after_create :send_mail
+  # after_create :send_mail
   # has_attached_file :cover,styles: { thumb: '120x120', large: '300x400' }
   has_attached_file :cover
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
