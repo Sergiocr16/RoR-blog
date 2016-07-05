@@ -56,6 +56,11 @@ a, a:visited {
 }
 .large-padding {
     padding: 5px;
+    margin: 0 !important;
+}
+
+.no-padding{
+  padding: 0 !important;
 }
 .no-list {
     list-style: none;
@@ -74,7 +79,7 @@ a, a:visited {
 }
 
 .Page {
-    margin: 0 8%;
+
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 10px;
@@ -94,6 +99,7 @@ a, a:visited {
 #image-bg {
     background-image: url("https://gamtor.files.wordpress.com/2016/01/cropped-games-2015-best-collage-wallpaper.jpg");
     z-index: -1;
+     background-repeat: fixed;
 }
 .welcome-title {
     color: white;

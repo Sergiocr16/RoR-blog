@@ -1,20 +1,19 @@
 <header>
-    <nav class="be-red white large-padding">
-        <ul class="no-list row center-xs middle-xs">
-            <li class="col-md">
+    <nav class="be-red white large-padding text-center col-md-12 col-lg-12 col-xs-12">
+        <ul class="no-list">
+            <li class="col-md-2 col-md-offset-1">
                 <h1 class="no-margin" id="logo">
                     <strong><%=link_to "Gaming blog  ",root_path%>
                         <i class="fa fa-rebel fa-lg" aria-hidden="true"></i>
                     </strong>
                 </h1>
             </li>
-
-            <li class="col-md">
+            <li class="col-md-1 top-space">
                 <%= link_to "Articulos",articles_path%>
             </li>
 
             <%@categories.each do |category|%>
-            <li class="col-md">
+            <li class="col-md-1  top-space">
 
                 <%= link_to category.name,category%>
             </li>
@@ -25,24 +24,24 @@
             </li> -->
 
             <% if current_user.is_admin? %>
-            <li class="col-md">
+            <li class="col-md-1  top-space">
                 <%=link_to "Administrar", dashboard_path%>
             </li>
             <%end%>
-            <li class="col-md">
-                <div class="">
+            <li class="col-md-2">
+                <div style="display:inline;">
                     <%=image_tag current_user.avatar ,style:"width:28px;height:28px; margin-top:10px; border-radius:100px;"%>
                 </div>
-                <div style="font-size:12px !important">
+                <div class="" style="font-size:12px !important">
                     <%=current_user.email%></div>
                 <span style="font-size:10px"><%=link_to "Cerrar Sesión", destroy_user_session_path, method: :delete%></span>
-
             </li>
+
             <%else%>
-            <li class="col-md">
+            <li class="col-md-2  col-sm-3 top-space">
                 <%=link_to "Iniciar Sesión", new_user_session_path%>
             </li>
-            <li class="col-md">
+            <li class="col-md-2  col-sm-3 top-space">
                 <%=link_to "Crear cuenta", new_user_registration_path%>
             </li>
             <%end%>
