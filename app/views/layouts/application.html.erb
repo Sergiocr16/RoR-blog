@@ -11,13 +11,16 @@
     </head>
 
     <body id="image-bg" class="col-md-12 col-lg-12 col-xs-12 no-padding">
-      <%=render "partials/navigation"%>
+
+        <%=render "partials/navigation"%>
         <p class="notice"><%= notice%></p>
         <p class="alert"><%= alert%></p>
         <div>
-            <div class="Page col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 col-sm-12 col-xs-12">
+            <div class="Page col-md-offset-1 col-lg-offset-1 col-md-10 col-lg-10 col-sm-12 col-xs-12 top-space">
                 <%= yield %>
             </div>
+        <div  class="col-md-12 col-lg-12 col-xs-12 no-padding img-responsive"></div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

@@ -1,8 +1,11 @@
 body, html {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     font-family: 'Open Sans', sans-serif;
+    font-size: 1em !important;
 }
+
+
 input, textarea {
     color: black;
 }
@@ -13,7 +16,7 @@ input, textarea {
 }
 #comments-box{
   height: 200px;
-  overflow-y: scroll;
+
 }
 .center {
 
@@ -99,7 +102,8 @@ a, a:visited {
 #image-bg {
     background-image: url("https://gamtor.files.wordpress.com/2016/01/cropped-games-2015-best-collage-wallpaper.jpg");
     z-index: -1;
-     background-repeat: fixed;
+
+    background-size:auto;
 }
 .welcome-title {
     color: white;
@@ -122,8 +126,4 @@ a, a:visited {
 }
 .article-body {
     padding: 0 40px;
-}
-.scroll {
-    overflow-y: scroll;
-    height: 600px;
 }
